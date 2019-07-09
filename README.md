@@ -24,7 +24,6 @@ See below for example output plots.
 
 ## **Input Data Types**
 
----
 
 This application accepts the following types of input data:
 
