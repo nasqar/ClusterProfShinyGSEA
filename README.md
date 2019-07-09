@@ -65,7 +65,7 @@ This application accepts the following types of input data:
 <div class="col-md-12"><hr style="border-top: none;"></div>
 
 ## **Run Results**
----
+
 ### 1. Data Output
 The output results will be either displayed and/or is downloadable
 - EnrichGo results table
