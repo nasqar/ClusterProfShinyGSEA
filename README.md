@@ -85,5 +85,5 @@ Various forms of visualizations are included for either Go/KEGG:
 
 - [GuangchuangYu/clusterProfiler](https://github.com/GuangchuangYu/clusterProfiler)
 
-- [Mohammed Khalfan](https://gencore.bio.nyu.edu/)
+- [Mohammed Khalfan - Gene Set Enrichment Tutorial](https://learn.gencore.bio.nyu.edu/rna-seq-analysis/gene-set-enrichment-analysis/)
 
