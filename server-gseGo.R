@@ -15,6 +15,8 @@ gseGoReactive <- eventReactive(input$initGo,{
       removeNotification("errorNotify")
       removeNotification("errorNotify1")
       removeNotification("errorNotify2")
+      removeNotification("warnNotify")
+      removeNotification("warnNotify2")
       
       validate(need(tryCatch({
         df <- inputDataReactive()$data
@@ -53,6 +55,12 @@ gseGoReactive <- eventReactive(input$initGo,{
                      OrgDb = input$organismDb, 
                      pAdjustMethod = input$pAdjustMethod)
         
+        if(nrow(go_gse) < 1)
+        {
+          showNotification(id="warnNotify", "No gene can be mapped ...", type = "warning", duration = NULL)
+          showNotification(id="warnNotify2", "Tune the parameters and try again.", type = "warning", duration = NULL)
+          return(NULL)
+        }
         
         updateNumericInput(session, "showCategory_bar", max = nrow(go_gse@result) , min = 0, value = ifelse(nrow(go_gse@result) > 0, 5,0))
         updateNumericInput(session, "showCategory_dot", max = nrow(go_gse@result) , min = 0, value = ifelse(nrow(go_gse@result) > 0, 5,0))

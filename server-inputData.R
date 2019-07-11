@@ -51,7 +51,7 @@ inputDataReactive <- reactive({
     seqdata <- read.csv(inFile$datapath, header=TRUE, sep=",")
     print('uploaded seqdata')
     if(ncol(seqdata)==1) { # if file appears not to work as csv try tsv
-      seqdata <- read.tsv(inFile, header=TRUE)
+      seqdata <- read.tsv(inFile$datapath, header=TRUE)
       print('changed to tsv, uploaded seqdata')
     }
     shiny::validate(need(ncol(seqdata)>1,

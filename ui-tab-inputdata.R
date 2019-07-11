@@ -14,7 +14,7 @@ tabItem(tabName = "datainput",
                                               p("CSV counts file")
 
                              ),
-                             conditionalPanel(condition = "input.data_file_type=='csvfile' || input.data_file_type=='upload10x'",
+                             conditionalPanel(condition = "input.data_file_type=='csvfile'",
                                               fileInput('datafile', 'Choose File Containing Data', multiple = F)
                              )
 
