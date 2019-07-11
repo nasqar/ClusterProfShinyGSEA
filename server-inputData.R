@@ -21,7 +21,7 @@ inputDataReactive <- reactive({
   
   # Check if example selected, or if not then ask to upload a file.
   shiny:: validate(
-    need( identical(input$data_file_type,"examplecounts")|(!is.null(input$datafile))|(!is.null(query[['countsdata']])),
+    need( identical(input$data_file_type,"examplecounts")|(!is.null(input$datafile)),
           message = "Please select a file")
   )
   
@@ -44,30 +44,29 @@ inputDataReactive <- reactive({
   }
   
   #inFile <- input$datafile
+  js$addStatusIcon("datainput","loading")
   
-  if (!is.null(inFile) && !is.null(query[['countsdata']])) {
-    #js$addStatusIcon("datainput","loading")
-    seqdata <- read.csv(inFile, header=TRUE, sep=",", row.names = 1)
+  if (!is.null(inFile) ) {
+    
+    seqdata <- read.csv(inFile$datapath, header=TRUE, sep=",")
     print('uploaded seqdata')
     if(ncol(seqdata)==1) { # if file appears not to work as csv try tsv
-      seqdata <- read.tsv(inFile, header=TRUE, row.names = 1)
+      seqdata <- read.tsv(inFile, header=TRUE)
       print('changed to tsv, uploaded seqdata')
     }
     shiny::validate(need(ncol(seqdata)>1,
                          message="File appears to be one column. Check that it is a comma or tab delimited (.csv) file."))
     
+    js$addStatusIcon("datainput","done")
+    js$collapse("uploadbox")
     return(list('data'=seqdata))
   }
   else{
     if(input$data_file_type=="examplecounts")
     {
-      js$addStatusIcon("datainput","loading")
-      #pbmc.data <- Read10X(data.dir = "www/hg19/")
-      
       #data = read.csv("www/exampleData/SRX003935_vs_SRX003924.csv")
       
       data = read.csv("www/exampleData/drosphila_example_de.csv")
-      
       
       
       js$addStatusIcon("datainput","done")
@@ -92,7 +91,6 @@ options = list(scrollX = TRUE))
 
 # check if a file has been uploaded and create output variable to report this
 output$fileUploaded <- reactive({
-  
 
     if(!is.null(inputDataReactive()))
     {

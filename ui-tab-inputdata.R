@@ -15,7 +15,7 @@ tabItem(tabName = "datainput",
 
                              ),
                              conditionalPanel(condition = "input.data_file_type=='csvfile' || input.data_file_type=='upload10x'",
-                                              fileInput('datafile', 'Choose File(s) Containing Data', multiple = TRUE)
+                                              fileInput('datafile', 'Choose File Containing Data', multiple = F)
                              )
 
                          ),
@@ -64,7 +64,7 @@ tabItem(tabName = "datainput",
                                                      numericInput("pvalCuttoff","P-Value Cutoff:", value = 0.05)
                                               ),
                                               column(4,
-                                                     selectInput("pAdjustMethod","pAdjustMethod:", choices = c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"), selected = "fdr")
+                                                     selectInput("pAdjustMethod","pAdjustMethod:", choices = c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"), selected = "none")
                                               ),
                                               column(4,
                                                      selectInput("keggKeyType","keggKeyType:", choices = c("kegg", "ncbi-geneid", "ncib-proteinid","uniprot"), selected = "ncbi-geneid")
