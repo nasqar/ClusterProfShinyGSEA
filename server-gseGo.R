@@ -32,21 +32,7 @@ gseGoReactive <- eventReactive(input$initGo,{
         
         myValues$gene_list = gene_list
         
-        # # Exctract significant results
-        # # ALLOW USERS TO EDIT 0.05 AS A PARAMETER
-        # sig_genes_df = subset(df, padj < input$padjCutoff)
-        # 
-        # # From significant results, we want to filter on log2fold change
-        # genes <- sig_genes_df[[input$log2fcColumn]]
-        # 
-        # # Name the vector
-        # names(genes) <- sig_genes_df[[input$geneColumn]]
-        # 
-        # # omit NA values
-        # genes <- na.omit(genes)
-        # 
-        # # filter on min log2fold change (PARAMETER)
-        # genes <- names(genes)[abs(genes) > input$logfcCuttoff]
+        
         # 
         
         setProgress(value = 0.3, detail = "Performing GSE analysis, please wait ...")
