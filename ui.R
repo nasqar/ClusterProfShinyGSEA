@@ -65,7 +65,7 @@ ui <- tagList(
         '
         <p align="center" width="4">Core Bioinformatics, Center for Genomics and Systems Biology, NYU Abu Dhabi</p>
         <p align="center" width="4">Github: <a href="https://github.com/nasqar/ClusterProfShiny/">https://github.com/nasqar/ClusterProfShiny/</a></p>
-        <p align="center" width="4">Maintained by: <a href="ay21@nyu.edu">Ayman Yousif</a> </p>
+        <p align="center" width="4">Maintained by: <a href="mailto:ay21@nyu.edu">Ayman Yousif</a> </p>
         <p align="center" width="4">Using ClusterProfiler</p>
         <p align="center" width="4"><strong>Acknowledgements: </strong></p>
         <p align="center" width="4">1) <a href="https://github.com/GuangchuangYu/clusterProfiler" target="_blank">GuangchuangYu/clusterProfiler</a></p>
