@@ -6,7 +6,8 @@ output$dotPlot = renderPlot({
           #drop = TRUE, 
           showCategory = input$showCategory_dot, 
           #title = "GO Biological Pathways",
-          font.size = 8)
+          font.size = 8,
+          split=".sign") + facet_grid(.~.sign)
   })
   
 })
