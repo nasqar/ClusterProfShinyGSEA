@@ -55,6 +55,7 @@ gseGoReactive <- eventReactive(input$initGo,{
                      OrgDb = input$organismDb, 
                      pAdjustMethod = input$pAdjustMethod)
         
+        
         if(nrow(go_gse) < 1)
         {
           showNotification(id="warnNotify", "No gene can be mapped ...", type = "warning", duration = NULL)
@@ -87,7 +88,8 @@ gseGoReactive <- eventReactive(input$initGo,{
         dedup_ids = ids[!duplicated(ids[c(input$keytype)]),]
         
         # Create a new dataframe df2 which has only the genes which were successfully mapped using the bitr function above
-        df2 = df[df$X %in% dedup_ids$ENSEMBL,]
+        #df2 = df[df$X %in% dedup_ids$ENSEMBL,]
+        df2 = df[df$X %in% dedup_ids[,1],]
         
         # Create a new column in df2 with the corresponding ENTREZ IDs
         df2$Y = dedup_ids$ENTREZID
@@ -144,7 +146,7 @@ gseGoReactive <- eventReactive(input$initGo,{
         
         myValues$organismKegg = organismsDbKegg[input$organismDb]
         
-        updateSelectInput(session, "geneid_type", choices = gene.idtype.list, selected = "ENSEMBL")
+        updateSelectInput(session, "geneid_type", choices = gene.idtype.list, selected = input$keytype)
         updateSelectizeInput(session,'pathwayIds', choices=kegg_gse@result$ID)
         
       }, error = function(e) {
