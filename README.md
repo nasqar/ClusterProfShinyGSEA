@@ -1,5 +1,7 @@
 # ClusterProfShinyGSEA
-clusterProfiler Gene Set Enrichment Analysis R shiny
+- clusterProfiler Gene Set Enrichment Analysis R shiny
+- This is a part of the NASQAR toolbox
+- Pre-print: [NASQAR: A web-based platform for High-throughput sequencing data analysis and visualization](https://doi.org/10.1101/709980)
 
 ---
 
