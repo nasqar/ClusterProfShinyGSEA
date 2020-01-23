@@ -39,7 +39,7 @@ gseGoReactive <- eventReactive(input$initGo,{
         
         setProgress(value = 0.3, detail = "Performing GSE analysis, please wait ...")
         
-        orgDb.obj = eval(str2expression(input$organismDb))
+        orgDb.obj = eval( parse(text = input$organismDb, keep.source=FALSE))
         
         go_gse <- gseGO(geneList=gene_list, 
                      ont = input$ontology, 
