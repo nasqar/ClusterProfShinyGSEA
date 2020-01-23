@@ -39,11 +39,8 @@ gseGoReactive <- eventReactive(input$initGo,{
         
         setProgress(value = 0.3, detail = "Performing GSE analysis, please wait ...")
         
-        # go_gse <- gseGO(gene = genes,
-        #                       universe = names(gene_list),
-        #                       
-        #                       readable = T,
-        #                       qvalueCutoff = input$qvalCuttoff)
+        orgDb.obj = eval(str2expression(input$organismDb))
+        
         go_gse <- gseGO(geneList=gene_list, 
                      ont = input$ontology, 
                      keyType = input$keytype, 
@@ -52,7 +49,7 @@ gseGoReactive <- eventReactive(input$initGo,{
                      maxGSSize = input$maxGSSize, 
                      pvalueCutoff = input$pvalCuttoff, 
                      verbose = T, 
-                     OrgDb = input$organismDb, 
+                     OrgDb = orgDb.obj, 
                      pAdjustMethod = input$pAdjustMethod)
         
         if(nrow(go_gse) < 1)
