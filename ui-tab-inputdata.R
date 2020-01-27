@@ -80,7 +80,7 @@ tabItem(tabName = "datainput",
                            bsCollapsePanel(title="Data Contents Table:",value="data_panel",
                                            p("Note: if there are more than 20 columns, only the first 20 will show here"),
                                            textOutput("inputInfo"),
-                                           withSpinner(dataTableOutput('countdataDT'))
+                                           dataTableOutput('countdataDT')
                            )
                 )#bscollapse
          )#column
